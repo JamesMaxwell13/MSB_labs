@@ -10,11 +10,9 @@ import com.lab.cryptostore.ui.theme.CryptoTrackerTheme
 
 @Composable
 fun CoinsScreen() {
-//    CryptoTrackerTheme {
-//        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//            AdaptiveCoinListDetailPane(
-//                modifier = Modifier.padding(innerPadding)
-//            )
-//        }
-//    }
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            AdaptiveCoinListDetailPane(
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
 }

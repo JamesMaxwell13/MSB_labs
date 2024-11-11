@@ -10,29 +10,31 @@ import androidx.navigation.toRoute
 import com.lab.cryptostore.crypto.presentation.MainScreen
 import com.lab.cryptostore.crypto.login.ui.LoginScreen
 import com.lab.cryptostore.crypto.login.data.AccountDataObject
+import com.lab.cryptostore.ui.theme.CryptoTrackerTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
+            CryptoTrackerTheme {
+                val navController = rememberNavController()
 
-            NavHost(
-                navController = navController,
-                startDestination = "login"
-            ) {
-                composable("login") {
-                    LoginScreen { navData ->
-                        navController.navigate(navData)
+                NavHost(
+                    navController = navController,
+                    startDestination = "login"
+                ) {
+                    composable("login") {
+                        LoginScreen { navData ->
+                            navController.navigate(navData)
+                        }
                     }
-                }
-                composable<AccountDataObject> { navEntry ->
-                    val navData = navEntry.toRoute<AccountDataObject>()
-                    MainScreen(navData)
+                    composable<AccountDataObject> { navEntry ->
+                        val navData = navEntry.toRoute<AccountDataObject>()
+                        MainScreen(navData)
+                    }
                 }
             }
         }
     }
 }
 
-// admin@gmail.com admin_password
